@@ -1,0 +1,70 @@
+
+        <nav style="height:70px;" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="/dashboard/show-event">
+<img src="../assets/images/r-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    
+  </a>PerfectionGeeks
+             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/dashboard/show-event">     Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link disabled" aria-disabled="true" href="#">Contact Us</a>
+      </li>
+      <li class="nav-item disabled">
+        <a class="nav-link" href="/dashboard/show-event/#">About Us</a>
+      </li>
+      
+      
+    </ul>
+  </div>
+            ><!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div style="color: white;" class="class"></div>
+            </form>
+            <!-- Navbar-->
+
+
+          <div class="row">
+            <div class="col">
+            	<button class="btn btn-outline-primary" (click)="exportAsXLSX()	">Download Excel</button>
+              <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right">
+                <button class="btn btn-outline-primary" display="dynamic" placement="bottom-right"  id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-user fa-fw"></i></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem routerLink="/change-password"><i class="fa fa-lock" aria-hidden="true"></i>  Change Password</button>
+                  <button ngbDropdownItem (click)="Logout()"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>  Logout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+</nav>
+ 
+
+
+<div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Role</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of ApiService.userlist; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ user.firstName + user.lastName }}
+    </td>
+    <td>{{ user.role }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
+
